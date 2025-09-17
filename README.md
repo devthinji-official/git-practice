@@ -27,6 +27,12 @@ git checkout -b <branch> <commit-hash>
 # Branching from another branch
 git branch <new-branch> <source-branch>
 
+# Publish a new branch
+git push --set-upstream origin <branch>
+
+--set-upstream can be shortened to -u
+--set-upstream is useful when pushing a branch for the first time and linking local branch to remote branch
+
 # Reset to a specific commit
 git reset --hard <commit-hash>
 
