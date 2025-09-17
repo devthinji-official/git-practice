@@ -1,72 +1,68 @@
-# GIT COMMANDS
+# Git Commands
 
 ```bash
+# Initialize or clone a repository
 git init
 git clone <repo>
+
+# Stage and commit changes
 git add <file>
 git commit -m "message"
 
+# Push and pull
 git push origin <branch>
 git pull origin <branch>
 
 # Branching
 git branch <branch>
 git checkout <branch>
+git checkout -b <branch>       # Create and switch to a new branch
 
-# Merging
+# Delete branch
+git branch -d <branch>
+
+# Branching from a specific commit
+git checkout -b <branch> <commit-hash>
+
+# Branching from another branch
+git branch <new-branch> <source-branch>
+
+# Reset to a specific commit
+git reset --hard <commit-hash>
+
+# Merging and related
 git merge <branch>
 git rebase <branch>
 git stash
+
+# History
 git log
 ```
 
-# git identity
+---
+
+# Git Identity
 
 ```bash
 git config --global user.name "Your Name"
-git config --global user.email "
+git config --global user.email "you@example.com"
 git config --list
 ```
 
-# Create branch and switch to it
+---
 
-```bash
-git checkout -b <branch>
-```
+# Commit Messages
 
-# Delete branch
+* Must be **meaningful** and written in the **imperative mood** (like commands).
+* Examples:
 
-```bash
-git branch -d <branch>
-```
+  * `Fix bug in user login`
+  * `Add search functionality`
+  * `Update README with setup instructions`
 
-# branching from a specific commit
+👉 Think of commit messages as answers to:
 
-```bash
-git checkout -b <branch> <commit-hash>
-```
-# Reset to a specific commit
+* *“If applied to the codebase, this commit will…”*
+* *“What will happen when I merge the branch containing this commit?”*
 
-```bash
-git reset --hard <commit-hash>
-```
-
-# branch from a specific branch
-
-```bash
-git branch <new-branch> <source-branch>
-
-```
-
-
-# Commit messages has to be meaningful and imperative
-# Example: "Fix bug in user login", like giving commands
-
-
-It is like they are answering the question:-
-
-`If applied to the codebase, this commit will...`
-...Or...
-`What will happen, when I merge the branch containing this commit?`
-
-Think....`It will....`
+So you’re essentially writing: **“It will…”**
