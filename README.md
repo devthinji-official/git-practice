@@ -1,23 +1,72 @@
-# This is a test README file and a test project.
+# GIT COMMANDS
 
-The safe alternative is:
+```bash
+git init
+git clone <repo>
+git add <file>
+git commit -m "message"
 
-```sh
-git switch main
-```
+git push origin <branch>
+git pull origin <branch>
 
-✅ If you have uncommitted changes, Git will stop and warn you instead of discarding them.
+# Branching
+git branch <branch>
+git checkout <branch>
 
-👉 If you *do* want to keep changes when switching, you can stash first:
-
-```sh
+# Merging
+git merge <branch>
+git rebase <branch>
 git stash
-git switch main
-git stash pop
+git log
 ```
 
-When you’d actually need the **force**
+# git identity
 
-```sh
-git switch -f main
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "
+git config --list
 ```
+
+# Create branch and switch to it
+
+```bash
+git checkout -b <branch>
+```
+
+# Delete branch
+
+```bash
+git branch -d <branch>
+```
+
+# branching from a specific commit
+
+```bash
+git checkout -b <branch> <commit-hash>
+```
+# Reset to a specific commit
+
+```bash
+git reset --hard <commit-hash>
+```
+
+# branch from a specific branch
+
+```bash
+git branch <new-branch> <source-branch>
+
+```
+
+
+# Commit messages has to be meaningful and imperative
+# Example: "Fix bug in user login", like giving commands
+
+
+It is like they are answering the question:-
+
+`If applied to the codebase, this commit will...`
+...Or...
+`What will happen, when I merge the branch containing this commit?`
+
+Think....`It will....`
