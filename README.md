@@ -74,19 +74,68 @@ git merge <branch>                # Merge branch into current
 git merge --no-ff <branch>        # Merge with merge commit
 git rebase <branch>               # Rebase current branch
 git rebase -i HEAD~3              # Interactive rebase last 3 commits
+git cherry-pick <commit-hash>     # Apply specific commit to current branch
+git cherry-pick <commit1>..<commit2>  # Cherry-pick range of commits
 ```
 
-## 💾 Stashing
+## ⚡ Merge Conflicts
+```bash
+# When conflicts occur during merge/rebase:
+git status                        # See conflicted files
+git diff                          # View conflict markers
+git add <resolved-file>           # Mark conflict as resolved
+git commit                        # Complete the merge
+git merge --abort                 # Abort merge and return to pre-merge state
+git rebase --abort                # Abort rebase
+
+# Conflict resolution tools:
+git mergetool                     # Open merge tool (if configured)
+git diff --name-only --diff-filter=U  # List unmerged files
+```
+
+### Conflict Markers in Files:
+```
+<<<<<<< HEAD
+Your current branch changes
+=======
+Incoming changes from other branch
+>>>>>>> other-branch
+```
+
+## 💾 Stashing (Temporary Storage)
 ```bash
 git stash                         # Stash current changes
-git stash save "message"          # Stash with message
+git stash push -m "message"       # Stash with descriptive message
 git stash list                    # List all stashes
+git stash show                    # Show summary of latest stash
+git stash show -p                 # Show full patch of latest stash
+
+# Apply stashes
 git stash pop                     # Apply and remove last stash
+git stash pop stash@{2}           # Apply specific stash by index
 git stash apply                   # Apply stash without removing
-git stash drop                    # Delete specific stash
+git stash apply stash@{1}         # Apply specific stash
+
+# Manage stashes
+git stash drop                    # Delete latest stash
+git stash drop stash@{1}          # Delete specific stash
+git stash clear                   # Delete all stashes
+
+# Partial stashing
+git stash -u                      # Include untracked files
+git stash -p                      # Interactive stashing (choose hunks)
+git stash --include-untracked     # Stash including untracked files
 ```
 
-## ⏪ Undoing Changes
+## 🍒 Cherry-pick
+```bash
+git cherry-pick <commit-hash>     # Apply single commit to current branch
+git cherry-pick <commit1> <commit2>  # Apply multiple specific commits
+git cherry-pick <start-commit>..<end-commit>  # Apply range of commits
+git cherry-pick --no-commit <commit>  # Apply without committing
+git cherry-pick --continue           # Continue after resolving conflicts
+git cherry-pick --abort              # Abort cherry-pick operation
+```
 ```bash
 # Unstage files
 git reset HEAD <file>             # Unstage specific file
